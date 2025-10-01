@@ -326,67 +326,100 @@
             </div>
         );
     };
-        const CompletionCertificate = ({ userName, onDownload }) => {
-        const date = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-        // CORRECT LOGO URL: Using the raw image link from your GitHub.
-        const fixedLogoUrl = "https://raw.githubusercontent.com/ganeshdahal-HUE/GK/7f224ce16ea81a48865672058c42587350a245e7/494645815_122099085086862980_1698079942897814974_n%20(1).jpg";
+          const CompletionCertificate = ({ userName, onDownload }) => {
+    const date = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 
-        return (
-            <div className="overlay">
-                <div className="modal-box bg-white dark:bg-slate-900 max-w-4xl w-full p-2 md:p-4">
-                    {/* Certificate Content - This is what gets downloaded */}
-                    <div id="completion-certificate" className="bg-white text-slate-800 p-6 md:p-8 relative shadow-2xl font-sans">
-                        {/* Background Color & Subtle Texture */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-slate-50 to-gray-100 dark:from-slate-800 dark:to-slate-900"></div>
-                        <div className="absolute inset-0 bg-repeat opacity-[0.03]" style={{backgroundImage: 'url("https://www.transparenttextures.com/patterns/light-paper-fibers.png")'}}></div>
+    const fixedLogoUrl = "https://i.ibb.co/3zdP15p/balen-logo-final.jpg";
+    const goldSealUrl = "https://i.ibb.co/T0f0d3j/gold-seal-embossed.png";
 
-                        {/* ORNATE BORDER: Multi-layered for a professional look */}
-                        <div className="absolute inset-2 border-2 border-amber-500/80"></div>
-                        <div className="absolute inset-4 border border-slate-600/70"></div>
-
-                        <div className="relative z-10 text-center flex flex-col items-center">
-                            
-                            <img src={fixedLogoUrl} alt="Portal Logo" className="h-20 w-20 rounded-full mb-4 object-cover border-4 border-white shadow-lg" />
-                            
-                            <h1 className="font-serif text-3xl md:text-4xl font-bold uppercase tracking-widest text-slate-700 dark:text-gray-200 mt-2">
-                                Certificate of Completion
-                            </h1>
-
-                            <p className="mt-8 text-lg text-slate-500 dark:text-slate-400">This Certificate is Awarded To</p>
-
-                            <p className="font-script text-5xl md:text-7xl font-medium my-4 text-amber-600 dark:text-amber-400">
-                                {userName}
-                            </p>
-
-                            <p className="max-w-xl mx-auto text-base text-slate-600 dark:text-slate-300 leading-relaxed">
-                                For demonstrating outstanding dedication and successful completion of all training modules and daily quizzes on the Balen Scholarship Prep Portal.
-                            </p>
-                            
-                            <div className="flex flex-col md:flex-row justify-between items-center mt-12 md:mt-16 w-full max-w-2xl mx-auto gap-8">
-                                <div className="text-center">
-                                    <p className="font-semibold text-slate-700 dark:text-slate-200">{date}</p>
-                                    <hr className="w-48 border-t border-slate-400/60 mt-2" />
-                                    <p className="text-sm text-slate-500 dark:text-slate-400 mt-1 uppercase tracking-wider">Date</p>
-                                </div>
-                                
-                                <div className="text-center">
-                                    <p className="font-script text-3xl text-slate-800 dark:text-slate-200">Ganesh Dahal</p>
-                                    <hr className="w-48 border-t border-slate-400/60 mt-2" />
-                                    <p className="text-sm text-slate-500 dark:text-slate-400 mt-1 uppercase tracking-wider">Portal Creator</p>
-                                </div>
-                            </div>
-
-                            <img src="https://i.ibb.co/7jXyXQ7/gold-seal.png" alt="Official Seal" className="absolute -bottom-16 md:-bottom-24 left-1/2 -translate-x-1/2 h-24 w-24 md:h-32 md:w-32 opacity-90"/>
-                        </div>
+    return (
+        <div className="overlay">
+            <div className="modal-box bg-white dark:bg-slate-900 max-w-5xl w-full p-6 md:p-10">
+                
+                <div id="completion-certificate" className="relative bg-white text-slate-800 px-12 py-16 shadow-2xl overflow-hidden font-serif rounded-lg">
+                    
+                    {/* Background Waves (SVG - no blur) */}
+                    <div className="absolute inset-0 z-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" preserveAspectRatio="none" className="w-full h-full">
+                            <path d="M0,120 C300,240 900,0 1200,120 L1200,800 L0,800 Z" fill="#ff7e29" opacity="0.85" />
+                            <path d="M0,240 C300,360 900,120 1200,240 L1200,800 L0,800 Z" fill="#ffa31a" opacity="0.85" />
+                        </svg>
                     </div>
-                    <div className="text-center">
-                      <button onClick={onDownload} className="gradient-button text-white font-bold py-3 px-8 rounded-full shadow-lg text-lg mt-6">Download Certificate</button>
+
+                    {/* Certificate Content */}
+                    <div className="relative z-10 text-center flex flex-col items-center space-y-6">
+                        
+                        {/* Logo */}
+                        <img 
+                            src={fixedLogoUrl} 
+                            alt="Logo" 
+                            className="h-24 w-24 rounded-full object-cover border-4 border-white shadow-md" 
+                        />
+                        
+                        <h1 className="font-serif text-4xl md:text-5xl font-bold text-slate-900 tracking-wider uppercase">
+                            Certificate of Completion
+                        </h1>
+
+                        <p className="text-lg md:text-xl text-slate-600 font-sans">
+                            Balen Scholarship Preparatory Program
+                        </p>
+
+                        <p className="mt-6 text-xl text-slate-600 font-sans italic">
+                            This acknowledges that
+                        </p>
+
+                        {/* Recipient Name */}
+                        <p className="font-[cursive] text-5xl md:text-7xl font-bold text-slate-900 tracking-wide leading-tight break-words px-4">
+                            {userName}
+                        </p>
+
+                        {/* Body Text */}
+                        <div className="max-w-3xl mx-auto text-center font-sans text-base md:text-lg text-slate-700 leading-relaxed px-4">
+                            <p>
+                                has successfully completed the <strong>Balen Scholarship Preparatory Program</strong>.
+                            </p>
+                            <p className="mt-3">
+                                Your dedication, perseverance, and commitment to learning are highly commendable. 
+                                May this achievement inspire greater success in the future.
+                            </p>
+                        </div>
+                        
+                        {/* Signature and Date */}
+                        <div className="flex flex-col md:flex-row justify-between items-center mt-14 w-full max-w-4xl mx-auto gap-y-10 md:gap-y-0">
+                            <div className="text-center">
+                                <p className="font-[cursive] text-3xl md:text-4xl text-slate-900 -mb-1">Ganesh Dahal</p>
+                                <hr className="w-52 md:w-64 border-t-2 border-slate-500/70 mx-auto" />
+                                <p className="text-sm text-slate-600 mt-1 font-sans tracking-widest">PROGRAM DIRECTOR</p>
+                            </div>
+                            <div className="text-center">
+                                <p className="font-sans font-semibold text-base md:text-lg text-slate-800">{date}</p>
+                                <hr className="w-52 md:w-64 border-t-2 border-slate-500/70 mx-auto" />
+                                <p className="text-sm text-slate-600 mt-1 font-sans tracking-widest">AWARDED ON</p>
+                            </div>
+                        </div>
+
+                        {/* Gold Seal */}
+                        <img 
+                            src={goldSealUrl} 
+                            alt="Official Seal" 
+                            className="absolute bottom-10 right-10 w-28 md:w-32 h-28 md:h-32 z-20 drop-shadow-xl" 
+                        />
                     </div>
                 </div>
+
+                {/* Download Button */}
+                <div className="text-center">
+                    <button 
+                        onClick={() => onDownload('completion-certificate')} 
+                        className="bg-gradient-to-r from-orange-600 to-yellow-500 text-white font-bold py-3 px-10 rounded-full shadow-lg text-lg mt-6 hover:scale-105 transition-transform"
+                    >
+                        Download Certificate
+                    </button>
+                </div>
             </div>
-        );
-    };
-   
+        </div>
+    );
+};
     // =================================================================================
     // ===== MAIN APP COMPONENT =====
     // =================================================================================
